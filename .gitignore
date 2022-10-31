@@ -8,3 +8,4 @@ dist
 /.idea/codeStyles/codeStyleConfig.xml
 /.idea/futbol-online.iml
 /.idea/modules.xml
+/package-lock.json
