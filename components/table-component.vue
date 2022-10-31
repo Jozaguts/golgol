@@ -1,72 +1,45 @@
 <script lang="ts" setup>
 import { vAutoAnimate } from "@formkit/auto-animate";
-import { useFilter } from "#imports";
-
-const search = ref("");
-const rawData = ref("");
-const defaultData = ref();
-const filteredData = ref();
-const today = new Date();
-useAsyncData("games", () => queryContent("/games").findOne())
-  .then(({ data: value }) => {
-    rawData.value = value.value.body;
-    return value.value.body
-      .map((item) => {
-        const time = item.date.split(":");
-        item.timestamp = new Date(
-          today.getFullYear(),
-          today.getMonth() + 1,
-          today.getDate(),
-          time[0],
-          time[1]
-        ).getTime();
-        return toRaw(item);
-      })
-      .filter((item) => {
-        return today.getTime() < item.timestamp;
-      })
-      .sort((a, b) => a.timestamp - b.timestamp);
-  })
-  .then((result) => {
-    filteredData.value = result;
-    defaultData.value = result; // esto es para reset
-  });
-const reset = () => (filteredData.value = defaultData.value); // aqui se hace el reset
-
-const debouncedFn = () => {
-  if (search.value.length >= 1) {
-    filteredData.value = useFilter(filteredData.value, (item) => {
-      return item.base_title_2
-        .toLowerCase()
-        .trim()
-        .startsWith(search.value.trim().toLowerCase());
-    });
-  } else {
-    reset();
-  }
-};
-const getGames = (number = 20) => {
-  const ret = [];
-  for (let i = 1; i <= number; i++) {
-    ret.push(filteredData.value[i]);
-  }
+const scrollComponent = ref(null);
+const { data } = await useAsyncData("games", () =>
+  queryContent("/games").findOne()
+);
+const rawGames = toRaw(data.value.body);
+const initialGames = ref(20);
+const getGames = () => {
+  const ret = useTake(rawGames, initialGames.value);
   return ret;
+};
+const games = ref(getGames());
+
+const loadMorePosts = () => {
+  initialGames.value += 20;
+  games.value = [];
+  const newPosts = getGames();
+  games.value.push(...newPosts);
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+const handleScroll = () => {
+  const element = scrollComponent.value;
+  if (element.getBoundingClientRect().bottom < window.innerHeight) {
+    loadMorePosts();
+  }
 };
 </script>
 <template>
   <div>
     <v-text-field
-      v-model="search"
+      disabled
       label="buscador"
       variant="underlined"
       autofocus
-      @keyup="debouncedFn"
     ></v-text-field>
-    <div v-auto-animate>
-      <small v-if="search.length" class="text-caption text-green-lighten-2">
-        Buscando...
-      </small>
-    </div>
     <v-table fixed-header density="compact" :hover="true">
       <thead>
         <tr>
@@ -78,7 +51,7 @@ const getGames = (number = 20) => {
           <th scope="col" class="text-left">HD</th>
         </tr>
       </thead>
-      <tbody v-auto-animate>
+      <tbody ref="scrollComponent" v-auto-animate>
         <tr
           v-for="{
             date,
@@ -90,7 +63,7 @@ const getGames = (number = 20) => {
             name_channel,
             href_channel,
             href_hd,
-          } in getGames()"
+          } in games"
           :key="date"
         >
           <td>{{ date }}</td>

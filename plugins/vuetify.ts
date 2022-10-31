@@ -1,15 +1,47 @@
 import { createVuetify } from "vuetify";
-import * as components from "vuetify/components";
-import * as directives from "vuetify/directives";
+import {
+  VApp,
+  VNavigationDrawer,
+  VAppBar,
+  VAppBarTitle,
+  VBtn,
+  VFooter,
+  VSpacer,
+  VMain,
+  VTable,
+  VTextField,
+  VContainer,
+  VRow,
+  VCol,
+  VAppBarNavIcon,
+} from "vuetify/components";
+import { Ripple } from "vuetify/directives";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
+    ssr: true,
+    components: {
+      VApp,
+      VNavigationDrawer,
+      VAppBar,
+      VAppBarTitle,
+      VBtn,
+      VFooter,
+      VSpacer,
+      VMain,
+      VTable,
+      VTextField,
+      VContainer,
+      VRow,
+      VCol,
+      VAppBarNavIcon,
+    },
+    directives: {
+      Ripple,
+    },
     theme: {
       defaultTheme: "dark",
     },
-    components,
-    directives,
   });
-
   nuxtApp.vueApp.use(vuetify);
 });
