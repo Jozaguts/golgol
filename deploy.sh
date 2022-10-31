@@ -2,15 +2,16 @@
 
 # abort on errors
 set -e
+cp ecosystem.config.js .output/
+cd .output/
 
-cd .output
 
-#git init
+git init
 git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/Jozaguts/golgol.git master:deploy
+git push -f https://github.com/Jozaguts/golgol.git master:web
 
 cd -
-rm -rf /.output
+rm -rf /output
