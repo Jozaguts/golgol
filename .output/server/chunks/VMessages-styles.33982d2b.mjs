@@ -1,4 +1,4 @@
-import { o as VMessages } from './styles.mjs';
+import { n as VMessages } from './styles.mjs';
 
 const VMessagesStyles_33982d2b = [VMessages];
 

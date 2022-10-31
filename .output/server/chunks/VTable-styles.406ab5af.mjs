@@ -1,4 +1,4 @@
-import { u as VTable } from './styles.mjs';
+import { t as VTable } from './styles.mjs';
 
 const VTableStyles_406ab5af = [VTable];
 

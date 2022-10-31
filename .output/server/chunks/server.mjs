@@ -3,14 +3,13 @@ import { $fetch as $fetch$1 } from 'ohmyfetch';
 import { createHooks } from 'hookable';
 import { getContext, executeAsync } from 'unctx';
 import destr from 'destr';
-import { withBase, withLeadingSlash, joinURL, hasProtocol, withoutTrailingSlash, isEqual as isEqual$1, parseURL } from 'ufo';
 import { appendHeader, createError as createError$1, sendRedirect } from 'h3';
 import { defuFn } from 'defu';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter } from 'vue-router';
 import { ssrRenderAttrs, ssrRenderComponent, ssrGetDirectiveProps, ssrRenderList, ssrInterpolate, ssrRenderClass, ssrRenderAttr, ssrRenderVNode, ssrRenderSuspense } from 'vue/server-renderer';
 import { Icon as Icon$1 } from '@iconify/vue/dist/offline';
 import { loadIcon } from '@iconify/vue';
-import { isEqual, hash } from 'ohash';
+import { isEqual as isEqual$1, hash } from 'ohash';
 import { parse, serialize } from 'cookie-es';
 import { take } from 'lodash-es';
 import { vAutoAnimate } from '@formkit/auto-animate';
@@ -20,6 +19,7 @@ import 'http';
 import 'https';
 import 'unenv/runtime/fetch/index';
 import 'scule';
+import 'ufo';
 import 'unstorage';
 import 'unstorage/drivers/overlay';
 import 'unstorage/drivers/memory';
@@ -54,6 +54,116 @@ import 'slugify';
 import 'unist-util-position';
 import 'html-tags';
 
+function decode(text = "") {
+  try {
+    return decodeURIComponent("" + text);
+  } catch (_err) {
+    return "" + text;
+  }
+}
+const PROTOCOL_REGEX = /^\w+:(\/\/)?/;
+const PROTOCOL_RELATIVE_REGEX = /^\/\/[^/]+/;
+function hasProtocol(inputStr, acceptProtocolRelative = false) {
+  return PROTOCOL_REGEX.test(inputStr) || acceptProtocolRelative && PROTOCOL_RELATIVE_REGEX.test(inputStr);
+}
+const TRAILING_SLASH_RE = /\/$|\/\?/;
+function hasTrailingSlash(input = "", queryParams = false) {
+  if (!queryParams) {
+    return input.endsWith("/");
+  }
+  return TRAILING_SLASH_RE.test(input);
+}
+function withoutTrailingSlash(input = "", queryParams = false) {
+  if (!queryParams) {
+    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
+  }
+  if (!hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  const [s0, ...s] = input.split("?");
+  return (s0.slice(0, -1) || "/") + (s.length ? `?${s.join("?")}` : "");
+}
+function withTrailingSlash(input = "", queryParams = false) {
+  if (!queryParams) {
+    return input.endsWith("/") ? input : input + "/";
+  }
+  if (hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  const [s0, ...s] = input.split("?");
+  return s0 + "/" + (s.length ? `?${s.join("?")}` : "");
+}
+function hasLeadingSlash(input = "") {
+  return input.startsWith("/");
+}
+function withoutLeadingSlash(input = "") {
+  return (hasLeadingSlash(input) ? input.substr(1) : input) || "/";
+}
+function withLeadingSlash(input = "") {
+  return hasLeadingSlash(input) ? input : "/" + input;
+}
+function withBase(input, base) {
+  if (isEmptyURL(base) || hasProtocol(input)) {
+    return input;
+  }
+  const _base = withoutTrailingSlash(base);
+  if (input.startsWith(_base)) {
+    return input;
+  }
+  return joinURL(_base, input);
+}
+function isEmptyURL(url) {
+  return !url || url === "/";
+}
+function isNonEmptyURL(url) {
+  return url && url !== "/";
+}
+function joinURL(base, ...input) {
+  let url = base || "";
+  for (const i of input.filter(isNonEmptyURL)) {
+    url = url ? withTrailingSlash(url) + withoutLeadingSlash(i) : i;
+  }
+  return url;
+}
+function isEqual(a, b, opts = {}) {
+  if (!opts.trailingSlash) {
+    a = withTrailingSlash(a);
+    b = withTrailingSlash(b);
+  }
+  if (!opts.leadingSlash) {
+    a = withLeadingSlash(a);
+    b = withLeadingSlash(b);
+  }
+  if (!opts.encoding) {
+    a = decode(a);
+    b = decode(b);
+  }
+  return a === b;
+}
+function parseURL(input = "", defaultProto) {
+  if (!hasProtocol(input, true)) {
+    return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
+  }
+  const [protocol = "", auth, hostAndPath = ""] = (input.replace(/\\/g, "/").match(/([^:/]+:)?\/\/([^/@]+@)?(.*)/) || []).splice(1);
+  const [host = "", path = ""] = (hostAndPath.match(/([^/?#]*)(.*)?/) || []).splice(1);
+  const { pathname, search, hash: hash2 } = parsePath(path);
+  return {
+    protocol,
+    auth: auth ? auth.substr(0, auth.length - 1) : "",
+    host,
+    pathname,
+    search,
+    hash: hash2
+  };
+}
+function parsePath(input = "") {
+  const [pathname = "", search = "", hash2 = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
+  return {
+    pathname,
+    search,
+    hash: hash2
+  };
+}
 const appConfig = useRuntimeConfig$1().app;
 const baseURL = () => appConfig.baseURL;
 const nuxtAppCtx = getContext("nuxt-app");
@@ -392,7 +502,7 @@ function useCookie(name, _opts) {
   {
     const nuxtApp = useNuxtApp();
     const writeFinalCookieValue = () => {
-      if (!isEqual(cookie.value, cookies[name])) {
+      if (!isEqual$1(cookie.value, cookies[name])) {
         writeServerCookie(useRequestEvent(nuxtApp), name, cookie.value, opts);
       }
     };
@@ -578,40 +688,40 @@ function useHead(meta2) {
   useNuxtApp()._useHead(meta2);
 }
 const components = {
-  ContentDoc: defineAsyncComponent(() => import('./ContentDoc.d658c337.mjs').then((c) => c.default || c)),
-  ContentList: defineAsyncComponent(() => import('./ContentList.8551d492.mjs').then((c) => c.default || c)),
-  ContentNavigation: defineAsyncComponent(() => import('./ContentNavigation.1fd38de1.mjs').then((c) => c.default || c)),
-  ContentQuery: defineAsyncComponent(() => import('./ContentQuery.8aa82f36.mjs').then((c) => c.default || c)),
-  ContentRenderer: defineAsyncComponent(() => import('./ContentRenderer.8aae68e0.mjs').then((c) => c.default || c)),
-  ContentRendererMarkdown: defineAsyncComponent(() => import('./ContentRendererMarkdown.28be588a.mjs').then((c) => c.default || c)),
-  ContentSlot: defineAsyncComponent(() => import('./ContentSlot.b36df09f.mjs').then((c) => c.default || c)),
+  ContentDoc: defineAsyncComponent(() => import('./ContentDoc.5e5732a6.mjs').then((c) => c.default || c)),
+  ContentList: defineAsyncComponent(() => import('./ContentList.3a4f2a52.mjs').then((c) => c.default || c)),
+  ContentNavigation: defineAsyncComponent(() => import('./ContentNavigation.a497b8ee.mjs').then((c) => c.default || c)),
+  ContentQuery: defineAsyncComponent(() => import('./ContentQuery.dee1d63b.mjs').then((c) => c.default || c)),
+  ContentRenderer: defineAsyncComponent(() => import('./ContentRenderer.dde4f3e1.mjs').then((c) => c.default || c)),
+  ContentRendererMarkdown: defineAsyncComponent(() => import('./ContentRendererMarkdown.eddbf0cb.mjs').then((c) => c.default || c)),
+  ContentSlot: defineAsyncComponent(() => import('./ContentSlot.ba2ae505.mjs').then((c) => c.default || c)),
   DocumentDrivenEmpty: defineAsyncComponent(() => import('./DocumentDrivenEmpty.b1426f16.mjs').then((c) => c.default || c)),
   DocumentDrivenNotFound: defineAsyncComponent(() => import('./DocumentDrivenNotFound.b4d3af5a.mjs').then((c) => c.default || c)),
-  Markdown: defineAsyncComponent(() => import('./Markdown.d18b5d06.mjs').then((c) => c.default || c)),
-  ProseA: defineAsyncComponent(() => import('./ProseA.788323e8.mjs').then((c) => c.default || c)),
-  ProseBlockquote: defineAsyncComponent(() => import('./ProseBlockquote.dd81dc4a.mjs').then((c) => c.default || c)),
-  ProseCode: defineAsyncComponent(() => import('./ProseCode.5f38c024.mjs').then((c) => c.default || c)),
-  ProseCodeInline: defineAsyncComponent(() => import('./ProseCodeInline.284e3b60.mjs').then((c) => c.default || c)),
-  ProseEm: defineAsyncComponent(() => import('./ProseEm.c4329c2d.mjs').then((c) => c.default || c)),
-  ProseH1: defineAsyncComponent(() => import('./ProseH1.e51ebdad.mjs').then((c) => c.default || c)),
-  ProseH2: defineAsyncComponent(() => import('./ProseH2.7bc9d3ab.mjs').then((c) => c.default || c)),
-  ProseH3: defineAsyncComponent(() => import('./ProseH3.fb77b761.mjs').then((c) => c.default || c)),
-  ProseH4: defineAsyncComponent(() => import('./ProseH4.5a767a7e.mjs').then((c) => c.default || c)),
-  ProseH5: defineAsyncComponent(() => import('./ProseH5.7d53fba9.mjs').then((c) => c.default || c)),
-  ProseH6: defineAsyncComponent(() => import('./ProseH6.5cb69e9e.mjs').then((c) => c.default || c)),
-  ProseHr: defineAsyncComponent(() => import('./ProseHr.1056e576.mjs').then((c) => c.default || c)),
+  Markdown: defineAsyncComponent(() => import('./Markdown.66d3b2aa.mjs').then((c) => c.default || c)),
+  ProseA: defineAsyncComponent(() => import('./ProseA.cabf9bb0.mjs').then((c) => c.default || c)),
+  ProseBlockquote: defineAsyncComponent(() => import('./ProseBlockquote.061bbec5.mjs').then((c) => c.default || c)),
+  ProseCode: defineAsyncComponent(() => import('./ProseCode.c6ce39bd.mjs').then((c) => c.default || c)),
+  ProseCodeInline: defineAsyncComponent(() => import('./ProseCodeInline.5f77b13b.mjs').then((c) => c.default || c)),
+  ProseEm: defineAsyncComponent(() => import('./ProseEm.35e65214.mjs').then((c) => c.default || c)),
+  ProseH1: defineAsyncComponent(() => import('./ProseH1.f5fae962.mjs').then((c) => c.default || c)),
+  ProseH2: defineAsyncComponent(() => import('./ProseH2.6700f47f.mjs').then((c) => c.default || c)),
+  ProseH3: defineAsyncComponent(() => import('./ProseH3.0fa38de7.mjs').then((c) => c.default || c)),
+  ProseH4: defineAsyncComponent(() => import('./ProseH4.403cfe72.mjs').then((c) => c.default || c)),
+  ProseH5: defineAsyncComponent(() => import('./ProseH5.e2bbcf53.mjs').then((c) => c.default || c)),
+  ProseH6: defineAsyncComponent(() => import('./ProseH6.d6b2cb13.mjs').then((c) => c.default || c)),
+  ProseHr: defineAsyncComponent(() => import('./ProseHr.a0d0718e.mjs').then((c) => c.default || c)),
   ProseImg: defineAsyncComponent(() => import('./ProseImg.4debdb73.mjs').then((c) => c.default || c)),
-  ProseLi: defineAsyncComponent(() => import('./ProseLi.8cfb81a1.mjs').then((c) => c.default || c)),
-  ProseOl: defineAsyncComponent(() => import('./ProseOl.3fa87d39.mjs').then((c) => c.default || c)),
-  ProseP: defineAsyncComponent(() => import('./ProseP.c447a7b0.mjs').then((c) => c.default || c)),
-  ProseStrong: defineAsyncComponent(() => import('./ProseStrong.ed625e97.mjs').then((c) => c.default || c)),
-  ProseTable: defineAsyncComponent(() => import('./ProseTable.32f36989.mjs').then((c) => c.default || c)),
-  ProseTbody: defineAsyncComponent(() => import('./ProseTbody.e80dfbb4.mjs').then((c) => c.default || c)),
-  ProseTd: defineAsyncComponent(() => import('./ProseTd.10f85591.mjs').then((c) => c.default || c)),
-  ProseTh: defineAsyncComponent(() => import('./ProseTh.6cf12b29.mjs').then((c) => c.default || c)),
-  ProseThead: defineAsyncComponent(() => import('./ProseThead.1355e482.mjs').then((c) => c.default || c)),
-  ProseTr: defineAsyncComponent(() => import('./ProseTr.d1a4887f.mjs').then((c) => c.default || c)),
-  ProseUl: defineAsyncComponent(() => import('./ProseUl.02eab094.mjs').then((c) => c.default || c)),
+  ProseLi: defineAsyncComponent(() => import('./ProseLi.170cced9.mjs').then((c) => c.default || c)),
+  ProseOl: defineAsyncComponent(() => import('./ProseOl.c87528fa.mjs').then((c) => c.default || c)),
+  ProseP: defineAsyncComponent(() => import('./ProseP.4e9a0560.mjs').then((c) => c.default || c)),
+  ProseStrong: defineAsyncComponent(() => import('./ProseStrong.7cd75ae0.mjs').then((c) => c.default || c)),
+  ProseTable: defineAsyncComponent(() => import('./ProseTable.a0143853.mjs').then((c) => c.default || c)),
+  ProseTbody: defineAsyncComponent(() => import('./ProseTbody.80d09d34.mjs').then((c) => c.default || c)),
+  ProseTd: defineAsyncComponent(() => import('./ProseTd.8658a7ad.mjs').then((c) => c.default || c)),
+  ProseTh: defineAsyncComponent(() => import('./ProseTh.ffc8a919.mjs').then((c) => c.default || c)),
+  ProseThead: defineAsyncComponent(() => import('./ProseThead.6611134e.mjs').then((c) => c.default || c)),
+  ProseTr: defineAsyncComponent(() => import('./ProseTr.cb6b2dae.mjs').then((c) => c.default || c)),
+  ProseUl: defineAsyncComponent(() => import('./ProseUl.7d8d4629.mjs').then((c) => c.default || c)),
   Icon: defineAsyncComponent(() => Promise.resolve().then(() => Icon).then((c) => c.default || c))
 };
 const _nuxt_components_plugin_mjs_KR1HBZs4kY = defineNuxtPlugin((nuxtApp) => {
@@ -1467,7 +1577,7 @@ const createQueryFetch = (path) => async (query) => {
     addPrerenderPath(apiPath);
   }
   if (shouldUseClientDB()) {
-    const db = await import('./client-db.f64478b1.mjs').then((m) => m.useContentDatabase());
+    const db = await import('./client-db.1baab964.mjs').then((m) => m.useContentDatabase());
     return db.fetch(query);
   }
   const data = await $fetch(apiPath, {
@@ -1500,7 +1610,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent$1({
       () => queryContent("/games").findOne()
     )), __temp = await __temp, __restore(), __temp);
     const rawGames = toRaw(data.value.body);
-    const initialGames = ref(20);
+    const initialGames = ref(40);
     const getGames = () => {
       const ret = take(rawGames, initialGames.value);
       return ret;
@@ -1740,7 +1850,7 @@ const _routes = [
     meta,
     alias: [],
     redirect: void 0,
-    component: () => import('./index.f287b161.mjs').then((m) => m.default || m)
+    component: () => import('./index.12fa6399.mjs').then((m) => m.default || m)
   }
 ];
 const configRouterOptions = {};
@@ -1873,7 +1983,7 @@ const node_modules_nuxt_dist_pages_runtime_router_mjs_qNv5Ky2ZmB = defineNuxtPlu
       nuxtApp.ssrContext.event.res.statusCode = 404;
     } else {
       const currentURL = to.fullPath || "/";
-      if (!isEqual$1(currentURL, initialURL)) {
+      if (!isEqual(currentURL, initialURL)) {
         await callWithNuxt(nuxtApp, navigateTo, [currentURL]);
       }
     }
@@ -7622,7 +7732,7 @@ const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = defineAsyncComponent(() => import('./error-component.d10ec33b.mjs').then((r) => r.default || r));
+    const ErrorComponent = defineAsyncComponent(() => import('./error-component.a6fbcc2d.mjs').then((r) => r.default || r));
     const nuxtApp = useNuxtApp();
     nuxtApp.deferHydration();
     provide("_route", useRoute());
@@ -7667,7 +7777,7 @@ const _wrapIf = (component, props, slots) => {
   return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
 };
 const layouts = {
-  default: () => import('./default.82c0840d.mjs').then((m) => m.default || m)
+  default: () => import('./default.688b27cd.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent$1({
   props: {
@@ -7845,5 +7955,5 @@ const plugins = normalizePlugins(_plugins);
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { tableComponent as A, layout as B, page as C, Icon as I, _export_sfc as _, useHead as a, useAsyncData as b, useRuntimeConfig as c, addPrerenderPath as d, entry$1 as default, useCookie as e, useNuxtApp as f, useState as g, useContentDisabled as h, __nuxt_component_0$2 as i, jsonStringify as j, useUnwrap as k, _sfc_main$2 as l, __nuxt_component_0$1 as m, get as n, assertArray as o, ensureArray as p, queryContent as q, sortList as r, shouldUseClientDB as s, apply as t, useRoute as u, withoutKeys as v, withContentBase as w, withKeys as x, createQuery as y, nuxtLink as z };
+export { withBase as A, nuxtLink as B, tableComponent as C, layout as D, page as E, Icon as I, _export_sfc as _, useHead as a, useAsyncData as b, useRuntimeConfig as c, withContentBase as d, entry$1 as default, addPrerenderPath as e, useCookie as f, useNuxtApp as g, useState as h, useContentDisabled as i, jsonStringify as j, __nuxt_component_0$2 as k, useUnwrap as l, _sfc_main$2 as m, __nuxt_component_0$1 as n, get as o, assertArray as p, queryContent as q, ensureArray as r, shouldUseClientDB as s, sortList as t, useRoute as u, apply as v, withTrailingSlash as w, withoutKeys as x, withKeys as y, createQuery as z };
 //# sourceMappingURL=server.mjs.map
