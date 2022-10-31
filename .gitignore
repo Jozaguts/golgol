@@ -9,5 +9,3 @@ dist
 /.idea/futbol-online.iml
 /.idea/modules.xml
 /package-lock.json
-/.output
-/.output/
