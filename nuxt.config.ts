@@ -2,7 +2,6 @@
 import eslintPlugin from "vite-plugin-eslint";
 
 export default defineNuxtConfig({
-  ssr: false,
   app: {
     head: {
       htmlAttrs: {
