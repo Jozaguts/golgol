@@ -578,40 +578,40 @@ function useHead(meta2) {
   useNuxtApp()._useHead(meta2);
 }
 const components = {
-  ContentDoc: defineAsyncComponent(() => import('./ContentDoc.828b6cea.mjs').then((c) => c.default || c)),
-  ContentList: defineAsyncComponent(() => import('./ContentList.25800ff3.mjs').then((c) => c.default || c)),
-  ContentNavigation: defineAsyncComponent(() => import('./ContentNavigation.305f284f.mjs').then((c) => c.default || c)),
-  ContentQuery: defineAsyncComponent(() => import('./ContentQuery.22828bd1.mjs').then((c) => c.default || c)),
-  ContentRenderer: defineAsyncComponent(() => import('./ContentRenderer.0e640762.mjs').then((c) => c.default || c)),
-  ContentRendererMarkdown: defineAsyncComponent(() => import('./ContentRendererMarkdown.b9a03117.mjs').then((c) => c.default || c)),
-  ContentSlot: defineAsyncComponent(() => import('./ContentSlot.ae7c04b0.mjs').then((c) => c.default || c)),
+  ContentDoc: defineAsyncComponent(() => import('./ContentDoc.d97fac55.mjs').then((c) => c.default || c)),
+  ContentList: defineAsyncComponent(() => import('./ContentList.edb414fb.mjs').then((c) => c.default || c)),
+  ContentNavigation: defineAsyncComponent(() => import('./ContentNavigation.99f1563c.mjs').then((c) => c.default || c)),
+  ContentQuery: defineAsyncComponent(() => import('./ContentQuery.8efc1ecd.mjs').then((c) => c.default || c)),
+  ContentRenderer: defineAsyncComponent(() => import('./ContentRenderer.ce1b5d9e.mjs').then((c) => c.default || c)),
+  ContentRendererMarkdown: defineAsyncComponent(() => import('./ContentRendererMarkdown.14b014dd.mjs').then((c) => c.default || c)),
+  ContentSlot: defineAsyncComponent(() => import('./ContentSlot.2299cae9.mjs').then((c) => c.default || c)),
   DocumentDrivenEmpty: defineAsyncComponent(() => import('./DocumentDrivenEmpty.b1426f16.mjs').then((c) => c.default || c)),
   DocumentDrivenNotFound: defineAsyncComponent(() => import('./DocumentDrivenNotFound.b4d3af5a.mjs').then((c) => c.default || c)),
-  Markdown: defineAsyncComponent(() => import('./Markdown.96349982.mjs').then((c) => c.default || c)),
-  ProseA: defineAsyncComponent(() => import('./ProseA.19a91570.mjs').then((c) => c.default || c)),
-  ProseBlockquote: defineAsyncComponent(() => import('./ProseBlockquote.2bb50c3e.mjs').then((c) => c.default || c)),
-  ProseCode: defineAsyncComponent(() => import('./ProseCode.b3250d8c.mjs').then((c) => c.default || c)),
-  ProseCodeInline: defineAsyncComponent(() => import('./ProseCodeInline.2be1646b.mjs').then((c) => c.default || c)),
-  ProseEm: defineAsyncComponent(() => import('./ProseEm.be5e59c5.mjs').then((c) => c.default || c)),
-  ProseH1: defineAsyncComponent(() => import('./ProseH1.893d0c20.mjs').then((c) => c.default || c)),
-  ProseH2: defineAsyncComponent(() => import('./ProseH2.15ad0b65.mjs').then((c) => c.default || c)),
-  ProseH3: defineAsyncComponent(() => import('./ProseH3.64749d33.mjs').then((c) => c.default || c)),
-  ProseH4: defineAsyncComponent(() => import('./ProseH4.64a97fe6.mjs').then((c) => c.default || c)),
-  ProseH5: defineAsyncComponent(() => import('./ProseH5.895f9b40.mjs').then((c) => c.default || c)),
-  ProseH6: defineAsyncComponent(() => import('./ProseH6.0c16586f.mjs').then((c) => c.default || c)),
-  ProseHr: defineAsyncComponent(() => import('./ProseHr.319405e1.mjs').then((c) => c.default || c)),
+  Markdown: defineAsyncComponent(() => import('./Markdown.e42a3b84.mjs').then((c) => c.default || c)),
+  ProseA: defineAsyncComponent(() => import('./ProseA.f42b60c7.mjs').then((c) => c.default || c)),
+  ProseBlockquote: defineAsyncComponent(() => import('./ProseBlockquote.bf361615.mjs').then((c) => c.default || c)),
+  ProseCode: defineAsyncComponent(() => import('./ProseCode.b357acfb.mjs').then((c) => c.default || c)),
+  ProseCodeInline: defineAsyncComponent(() => import('./ProseCodeInline.3ffc6056.mjs').then((c) => c.default || c)),
+  ProseEm: defineAsyncComponent(() => import('./ProseEm.6e8de6f8.mjs').then((c) => c.default || c)),
+  ProseH1: defineAsyncComponent(() => import('./ProseH1.799d76e0.mjs').then((c) => c.default || c)),
+  ProseH2: defineAsyncComponent(() => import('./ProseH2.684a7679.mjs').then((c) => c.default || c)),
+  ProseH3: defineAsyncComponent(() => import('./ProseH3.e65bc22b.mjs').then((c) => c.default || c)),
+  ProseH4: defineAsyncComponent(() => import('./ProseH4.06a9c160.mjs').then((c) => c.default || c)),
+  ProseH5: defineAsyncComponent(() => import('./ProseH5.38749f49.mjs').then((c) => c.default || c)),
+  ProseH6: defineAsyncComponent(() => import('./ProseH6.39955e13.mjs').then((c) => c.default || c)),
+  ProseHr: defineAsyncComponent(() => import('./ProseHr.ae280637.mjs').then((c) => c.default || c)),
   ProseImg: defineAsyncComponent(() => import('./ProseImg.4debdb73.mjs').then((c) => c.default || c)),
-  ProseLi: defineAsyncComponent(() => import('./ProseLi.62ce5785.mjs').then((c) => c.default || c)),
-  ProseOl: defineAsyncComponent(() => import('./ProseOl.35e15f79.mjs').then((c) => c.default || c)),
-  ProseP: defineAsyncComponent(() => import('./ProseP.2ed04148.mjs').then((c) => c.default || c)),
-  ProseStrong: defineAsyncComponent(() => import('./ProseStrong.58223226.mjs').then((c) => c.default || c)),
-  ProseTable: defineAsyncComponent(() => import('./ProseTable.89b8e5ab.mjs').then((c) => c.default || c)),
-  ProseTbody: defineAsyncComponent(() => import('./ProseTbody.7a34c605.mjs').then((c) => c.default || c)),
-  ProseTd: defineAsyncComponent(() => import('./ProseTd.7742dc6f.mjs').then((c) => c.default || c)),
-  ProseTh: defineAsyncComponent(() => import('./ProseTh.179cfa77.mjs').then((c) => c.default || c)),
-  ProseThead: defineAsyncComponent(() => import('./ProseThead.82070558.mjs').then((c) => c.default || c)),
-  ProseTr: defineAsyncComponent(() => import('./ProseTr.ec645aef.mjs').then((c) => c.default || c)),
-  ProseUl: defineAsyncComponent(() => import('./ProseUl.465c8254.mjs').then((c) => c.default || c)),
+  ProseLi: defineAsyncComponent(() => import('./ProseLi.e38ab510.mjs').then((c) => c.default || c)),
+  ProseOl: defineAsyncComponent(() => import('./ProseOl.17585d10.mjs').then((c) => c.default || c)),
+  ProseP: defineAsyncComponent(() => import('./ProseP.7273c093.mjs').then((c) => c.default || c)),
+  ProseStrong: defineAsyncComponent(() => import('./ProseStrong.959cd05b.mjs').then((c) => c.default || c)),
+  ProseTable: defineAsyncComponent(() => import('./ProseTable.7e9f0579.mjs').then((c) => c.default || c)),
+  ProseTbody: defineAsyncComponent(() => import('./ProseTbody.8a18f1d6.mjs').then((c) => c.default || c)),
+  ProseTd: defineAsyncComponent(() => import('./ProseTd.42e03cf9.mjs').then((c) => c.default || c)),
+  ProseTh: defineAsyncComponent(() => import('./ProseTh.87b744b1.mjs').then((c) => c.default || c)),
+  ProseThead: defineAsyncComponent(() => import('./ProseThead.033711cc.mjs').then((c) => c.default || c)),
+  ProseTr: defineAsyncComponent(() => import('./ProseTr.200b08a0.mjs').then((c) => c.default || c)),
+  ProseUl: defineAsyncComponent(() => import('./ProseUl.c95f1c28.mjs').then((c) => c.default || c)),
   Icon: defineAsyncComponent(() => Promise.resolve().then(() => Icon).then((c) => c.default || c))
 };
 const _nuxt_components_plugin_mjs_KR1HBZs4kY = defineNuxtPlugin((nuxtApp) => {
@@ -1120,7 +1120,7 @@ var createHead = (initHeadObject) => {
   return head;
 };
 const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" }, { "charset": "utf-16" }, { "name": "description", "content": "tarjeta Roja Tv, PirloTv, Partido en Vivo, ROJADIRECTA, tarjeta roja, Elitegol, VipGoal, tarjetarojaonline, roja directa online, rojadirecta.me, rojadirecta.net, rojadirecta.es, rojadirecta.com, rojadirecta.it Pirlotv.online JustinTv Futbol en Vivo liga mx Real Madrid vs Barcelona por ceular y tablet. GOL gol gooo! Tarjeta Roja TV, Futbol En Vivo, LaLiga de Espa\xF1a, Serie A, Premier League, UEFA Champions League, Bundesliga, ligamx ..." }, { "name": "keywords", "content": "tarjeta roja, tarjetaroja, rojadirecta, roja tarjeta, laroja, ver Justin TV, PirloTv, Ronaldo7, Ver Futbol Online, Futbol en vivo, Futbol por Internet, TarjetarojaTv, ver en vivo, tv online, Tarjetaroja, Tarjetaroja Tv, Roja Directa, Rojadirecta, Futbol online, Futbol en directo, Deportes online, resultados de Futbol. Television en vivo por internet, CMD en vivo, directv, La liga BBVA, Brasil 2014, TV en vivo, deportes, en vivo, psg, barca, online, Liga MX, 2015, ao vivo, jogo, assistir, watch live, Copa Pilsener." }, { "name": "distribution", "content": "global" }, { "name": "robots", "content": "all" }], "link": [{ "rel": "icon", "type": "image/x-icon", "href": "/favicon.ico" }], "style": [], "script": [{ "children": 'partytown = { debug: false, forward: [], lib: "/~partytown/" }' }, { "children": `/* Partytown 0.7.1 - MIT builder.io */
-!function(t,e,n,i,r,o,a,d,s,c,p,l){function u(){l||(l=1,"/"==(a=(o.lib||"/~partytown/")+(o.debug?"debug/":""))[0]&&(s=e.querySelectorAll('script[type="text/partytown"]'),i!=t?i.dispatchEvent(new CustomEvent("pt1",{detail:t})):(d=setTimeout(w,1e4),e.addEventListener("pt0",f),r?h(1):n.serviceWorker?n.serviceWorker.register(a+(o.swPath||"partytown-sw.js"),{scope:a}).then((function(t){t.active?h():t.installing&&t.installing.addEventListener("statechange",(function(t){"activated"==t.target.state&&h()}))}),console.error):w())))}function h(t){c=e.createElement(t?"script":"iframe"),t||(c.setAttribute("style","display:block;width:0;height:0;border:0;visibility:hidden"),c.setAttribute("aria-hidden",!0)),c.src=a+"partytown-"+(t?"atomics.js?v=0.7.1":"sandbox-sw.html?"+Date.now()),e.body.appendChild(c)}function w(t,n){for(f(),t=0;t<s.length;t++)(n=e.createElement("script")).innerHTML=s[t].innerHTML,e.head.appendChild(n);c&&c.parentNode.removeChild(c)}function f(){clearTimeout(d)}o=t.partytown||{},i==t&&(o.forward||[]).map((function(e){p=t,e.split(".").map((function(e,n,i){p=p[i[n]]=n+1<i.length?"push"==i[n+1]?[]:p[i[n]]||{}:function(){(t._ptf=t._ptf||[]).push(i,arguments)}}))})),"complete"==e.readyState?u():(t.addEventListener("DOMContentLoaded",u),t.addEventListener("load",u))}(window,document,navigator,top,window.crossOriginIsolated);` }, { "hid": "gtm", "type": "text/javascript", "children": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-MH39K7S');" }], "noscript": [{ "children": '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH39K7S" \n            height="0" width="0" style="display:none;visibility:hidden"></iframe>', "body": true }], "htmlAttrs": { "lang": "es" }, "charset": "utf-16", "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0", "title": "GOL GOL! | Futbol en vivo" };
+!function(t,e,n,i,r,o,a,d,s,c,p,l){function u(){l||(l=1,"/"==(a=(o.lib||"/~partytown/")+(o.debug?"debug/":""))[0]&&(s=e.querySelectorAll('script[type="text/partytown"]'),i!=t?i.dispatchEvent(new CustomEvent("pt1",{detail:t})):(d=setTimeout(w,1e4),e.addEventListener("pt0",f),r?h(1):n.serviceWorker?n.serviceWorker.register(a+(o.swPath||"partytown-sw.js"),{scope:a}).then((function(t){t.active?h():t.installing&&t.installing.addEventListener("statechange",(function(t){"activated"==t.target.state&&h()}))}),console.error):w())))}function h(t){c=e.createElement(t?"script":"iframe"),t||(c.setAttribute("style","display:block;width:0;height:0;border:0;visibility:hidden"),c.setAttribute("aria-hidden",!0)),c.src=a+"partytown-"+(t?"atomics.js?v=0.7.1":"sandbox-sw.html?"+Date.now()),e.body.appendChild(c)}function w(t,n){for(f(),t=0;t<s.length;t++)(n=e.createElement("script")).innerHTML=s[t].innerHTML,e.head.appendChild(n);c&&c.parentNode.removeChild(c)}function f(){clearTimeout(d)}o=t.partytown||{},i==t&&(o.forward||[]).map((function(e){p=t,e.split(".").map((function(e,n,i){p=p[i[n]]=n+1<i.length?"push"==i[n+1]?[]:p[i[n]]||{}:function(){(t._ptf=t._ptf||[]).push(i,arguments)}}))})),"complete"==e.readyState?u():(t.addEventListener("DOMContentLoaded",u),t.addEventListener("load",u))}(window,document,navigator,top,window.crossOriginIsolated);` }, { "src": "https://www.googletagmanager.com/gtag/js?id=G-LHR0FZKDKW", "async": true }, { "type": "text/javascript", "children": "\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments);}\n          gtag('js', new Date());\n          gtag('config', 'G-LHR0FZKDKW');" }, { "hid": "gtm", "type": "text/javascript", "children": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-MH39K7S');" }], "noscript": [{ "children": '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH39K7S" \n            height="0" width="0" style="display:none;visibility:hidden"></iframe>', "body": true }], "htmlAttrs": { "lang": "es" }, "charset": "utf-16", "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0", "title": "GOL GOL! | Futbol en vivo" };
 const appLayoutTransition = { "name": "layout", "mode": "out-in" };
 const appPageTransition = { "name": "page", "mode": "out-in" };
 const appKeepalive = false;
@@ -1467,7 +1467,7 @@ const createQueryFetch = (path) => async (query) => {
     addPrerenderPath(apiPath);
   }
   if (shouldUseClientDB()) {
-    const db = await import('./client-db.c763f9b3.mjs').then((m) => m.useContentDatabase());
+    const db = await import('./client-db.97f12a74.mjs').then((m) => m.useContentDatabase());
     return db.fetch(query);
   }
   const data = await $fetch(apiPath, {
@@ -1740,7 +1740,7 @@ const _routes = [
     meta,
     alias: [],
     redirect: void 0,
-    component: () => import('./index.b7e980f4.mjs').then((m) => m.default || m)
+    component: () => import('./index.e81fbc63.mjs').then((m) => m.default || m)
   }
 ];
 const configRouterOptions = {};
@@ -7622,7 +7622,7 @@ const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = defineAsyncComponent(() => import('./error-component.a3d28107.mjs').then((r) => r.default || r));
+    const ErrorComponent = defineAsyncComponent(() => import('./error-component.aa89986c.mjs').then((r) => r.default || r));
     const nuxtApp = useNuxtApp();
     nuxtApp.deferHydration();
     provide("_route", useRoute());
@@ -7667,7 +7667,7 @@ const _wrapIf = (component, props, slots) => {
   return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
 };
 const layouts = {
-  default: () => import('./default.58687520.mjs').then((m) => m.default || m)
+  default: () => import('./default.fefb601f.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent$1({
   props: {

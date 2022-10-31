@@ -1,4 +1,4 @@
-import { e as VBtnGroup } from './styles.mjs';
+import { d as VBtnGroup } from './styles.mjs';
 
 const VBtnGroupStyles_24791242 = [VBtnGroup];
 

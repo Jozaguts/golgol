@@ -1,4 +1,4 @@
-import { d as VBtnToggle } from './styles.mjs';
+import { e as VBtnToggle } from './styles.mjs';
 
 const VBtnToggleStyles_40c8cb9c = [VBtnToggle];
 
