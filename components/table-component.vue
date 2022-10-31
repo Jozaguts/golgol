@@ -5,7 +5,7 @@ const { data } = await useAsyncData("games", () =>
   queryContent("/games").findOne()
 );
 const rawGames = toRaw(data.value.body);
-const initialGames = ref(20);
+const initialGames = ref(40);
 const getGames = () => {
   const ret = useTake(rawGames, initialGames.value);
   return ret;

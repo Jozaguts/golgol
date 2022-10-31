@@ -98,7 +98,7 @@ export default defineNuxtConfig({
       );
     },
   },
-  buildModules: [/* "@nuxtjs/html-validator" */ "@nuxtjs/google-fonts"],
+  buildModules: [/* "@nuxtjs/html-validator" */ "@nuxtjs/google-fonts","@nuxtjs/web-vitals"],
   htmlValidator: {
     usePrettier: false,
     logLevel: "verbose",
@@ -133,4 +133,7 @@ export default defineNuxtConfig({
     preconnect: false,
     preload: false,
   },
+  googleAnalytics: {
+    id: 'G-LHR0FZKDKW'
+  }
 });
