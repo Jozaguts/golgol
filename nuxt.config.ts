@@ -28,6 +28,18 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
       script:[
         {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-LHR0FZKDKW",
+          async: true,
+        },
+        {
+          type:"text/javascript",
+          children:`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-LHR0FZKDKW');`
+        },
+        {
           hid:'gtm',
           type:"text/javascript",
           children:`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
