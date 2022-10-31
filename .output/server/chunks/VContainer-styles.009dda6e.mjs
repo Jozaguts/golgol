@@ -1,4 +1,4 @@
-import { i as VGrid } from './styles.mjs';
+import { g as VGrid } from './styles.mjs';
 
 const VContainerStyles_009dda6e = [VGrid];
 

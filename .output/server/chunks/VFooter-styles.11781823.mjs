@@ -1,4 +1,4 @@
-import { h as VFooter } from './styles.mjs';
+import { i as VFooter } from './styles.mjs';
 
 const VFooterStyles_11781823 = [VFooter];
 

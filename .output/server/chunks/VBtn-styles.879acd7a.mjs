@@ -1,4 +1,4 @@
-import { d as VBtn } from './styles.mjs';
+import { c as VBtn } from './styles.mjs';
 
 const VBtnStyles_879acd7a = [VBtn];
 
