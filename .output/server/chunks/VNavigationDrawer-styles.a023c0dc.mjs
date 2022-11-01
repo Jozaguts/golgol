@@ -1,4 +1,4 @@
-import { p as VNavigationDrawer } from './styles.mjs';
+import { n as VNavigationDrawer } from './styles.mjs';
 
 const VNavigationDrawerStyles_a023c0dc = [VNavigationDrawer];
 

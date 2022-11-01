@@ -1,4 +1,4 @@
-import { j as VIcon } from './styles.mjs';
+import { l as VIcon } from './styles.mjs';
 
 const VIconStyles_445d6e86 = [VIcon];
 

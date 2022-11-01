@@ -1,10 +1,4 @@
 const client_manifest = {
-  "node_modules/.cache/nuxt-google-fonts/fonts/Bungee_Outline-400-1.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Bungee_Outline-400-1.b68704f6.woff2",
-    "src": "node_modules/.cache/nuxt-google-fonts/fonts/Bungee_Outline-400-1.woff2"
-  },
   "node_modules/.cache/nuxt-google-fonts/fonts/Bungee_Outline-400-2.woff2": {
     "resourceType": "font",
     "mimeType": "font/woff2",
@@ -16,6 +10,12 @@ const client_manifest = {
     "mimeType": "font/woff2",
     "file": "Bungee_Outline-400-3.9a465184.woff2",
     "src": "node_modules/.cache/nuxt-google-fonts/fonts/Bungee_Outline-400-3.woff2"
+  },
+  "node_modules/.cache/nuxt-google-fonts/fonts/Bungee_Outline-400-1.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Bungee_Outline-400-1.b68704f6.woff2",
+    "src": "node_modules/.cache/nuxt-google-fonts/fonts/Bungee_Outline-400-1.woff2"
   },
   "node_modules/nuxt/dist/app/entry.mjs": {
     "resourceType": "script",

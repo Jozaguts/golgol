@@ -1,4 +1,4 @@
-import { l as VInput } from './styles.mjs';
+import { j as VInput } from './styles.mjs';
 
 const VInputStyles_0279943f = [VInput];
 
