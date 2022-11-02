@@ -26,18 +26,18 @@ export default defineNuxtConfig({
         { name: "robots", content: "all" },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-      script:[
+      script: [
         {
           src: "https://www.googletagmanager.com/gtag/js?id=G-LHR0FZKDKW",
           async: true,
         },
         {
-          type:"text/javascript",
-          children:`
+          type: "text/javascript",
+          children: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-LHR0FZKDKW');`
+          gtag('config', 'G-LHR0FZKDKW');`,
         },
       ],
     },
@@ -146,5 +146,5 @@ export default defineNuxtConfig({
     prefetch: false,
     preconnect: false,
     preload: false,
-  }
-})
+  },
+});

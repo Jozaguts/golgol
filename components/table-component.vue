@@ -7,7 +7,14 @@ const { data } = await useAsyncData("games", () =>
 const rawGames = toRaw(data.value.body);
 const initialGames = ref(40);
 const getGames = () => {
-  const ret = useTake(rawGames, initialGames.value);
+  const currentHour = new Date().getTime();
+  const notFinishedGames = useFilter(rawGames, (game) => {
+    const date = game.date.split(":");
+    // recuerda cambiar la fecha del evento
+    const dateEvent = new Date(2022, 10, 2).setHours(date[0], date[1]);
+    return dateEvent >= currentHour;
+  });
+  const ret = useTake(notFinishedGames, initialGames.value);
   return ret;
 };
 const games = ref(getGames());
@@ -40,7 +47,7 @@ const handleScroll = () => {
       variant="underlined"
       autofocus
     ></v-text-field>
-    <v-table fixed-header density="compact" :hover="true">
+    <v-table fixed-header density="comfortable" :hover="true">
       <thead>
         <tr>
           <th scope="col" class="text-left">Hora</th>

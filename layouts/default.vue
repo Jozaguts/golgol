@@ -1,7 +1,8 @@
 <template>
   <v-app>
-    <v-navigation-drawer location="right" app> </v-navigation-drawer>
-    <v-app-bar height="40" class="main-header" density="compact" app>
+    <v-navigation-drawer location="right" :model-value="false" app>
+    </v-navigation-drawer>
+    <v-app-bar height="60" class="main-header" density="compact" app>
       <v-app-bar-nav-icon>
         <Icon name="game-icons:soccer-kick"></Icon>
       </v-app-bar-nav-icon>
