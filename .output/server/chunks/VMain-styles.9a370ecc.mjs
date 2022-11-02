@@ -1,4 +1,4 @@
-import { n as VMain } from './styles.mjs';
+import { o as VMain } from './styles.mjs';
 
 const VMainStyles_9a370ecc = [VMain];
 

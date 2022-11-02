@@ -1,4 +1,4 @@
-import { m as VImg } from './styles.mjs';
+import { j as VImg } from './styles.mjs';
 
 const VImgStyles_f577a6b2 = [VImg];
 

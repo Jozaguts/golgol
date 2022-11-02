@@ -1,4 +1,4 @@
-import { l as VLabel } from './styles.mjs';
+import { m as VLabel } from './styles.mjs';
 
 const VLabelStyles_44eeb8f8 = [VLabel];
 
