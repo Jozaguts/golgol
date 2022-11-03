@@ -1,6 +1,2 @@
-import { i as VGrid } from './styles.mjs';
-
-const VContainerStyles_009dda6e = [VGrid];
-
-export { VContainerStyles_009dda6e as default };
+import{i as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VContainer-styles.009dda6e.mjs.map

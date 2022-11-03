@@ -1,6 +1,2 @@
-import { n as VMessages } from './styles.mjs';
-
-const VMessagesStyles_33982d2b = [VMessages];
-
-export { VMessagesStyles_33982d2b as default };
+import{p as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VMessages-styles.33982d2b.mjs.map

@@ -1,6 +1,2 @@
-import { c as VBtnToggle } from './styles.mjs';
-
-const VBtnToggleStyles_40c8cb9c = [VBtnToggle];
-
-export { VBtnToggleStyles_40c8cb9c as default };
+import{e as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VBtnToggle-styles.40c8cb9c.mjs.map

@@ -1,6 +1,2 @@
-import { q as VProgressCircular } from './styles.mjs';
-
-const VProgressCircularStyles_f868f9df = [VProgressCircular];
-
-export { VProgressCircularStyles_f868f9df as default };
+import{r as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VProgressCircular-styles.f868f9df.mjs.map

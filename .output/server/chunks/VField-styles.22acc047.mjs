@@ -1,6 +1,2 @@
-import { g as VField } from './styles.mjs';
-
-const VFieldStyles_22acc047 = [VField];
-
-export { VFieldStyles_22acc047 as default };
+import{g as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VField-styles.22acc047.mjs.map

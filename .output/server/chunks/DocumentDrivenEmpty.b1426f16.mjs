@@ -1,26 +1,2 @@
-import { defineComponent, h, useSSRContext } from 'vue';
-
-const _sfc_main = defineComponent({
-  name: "DocumentDrivenEmpty",
-  props: {
-    value: {
-      type: Object,
-      required: true
-    }
-  },
-  render({ value }) {
-    return h("div", void 0, [
-      h("p", "Document is empty"),
-      h("p", `Add content to it by opening ${value._source}/${value._file} file.`)
-    ]);
-  }
-});
-const _sfc_setup = _sfc_main.setup;
-_sfc_main.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/@nuxt/content/dist/runtime/components/DocumentDrivenEmpty.vue");
-  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
-};
-
-export { _sfc_main as default };
+import{defineComponent as e,h as t,useSSRContext as n}from"vue";const o=e({name:"DocumentDrivenEmpty",props:{value:{type:Object,required:!0}},render:({value:e})=>t("div",void 0,[t("p","Document is empty"),t("p",`Add content to it by opening ${e._source}/${e._file} file.`)])}),u=o.setup;o.setup=(e,t)=>{const o=n();return(o.modules||(o.modules=new Set)).add("node_modules/@nuxt/content/dist/runtime/components/DocumentDrivenEmpty.vue"),u?u(e,t):void 0};export{o as default};
 //# sourceMappingURL=DocumentDrivenEmpty.b1426f16.mjs.map

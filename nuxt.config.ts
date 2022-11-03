@@ -2,14 +2,20 @@
 import eslintPlugin from "vite-plugin-eslint";
 
 export default defineNuxtConfig({
+  nitro: {
+    minify: true,
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true,
+    },
+  },
   app: {
     head: {
       htmlAttrs: {
         lang: "es",
       },
       charset: "utf-16",
-      viewport:
-        "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0",
+      viewport: "width=device-width, initial-scale=1",
       title: "GOL GOL! | Futbol en vivo",
       meta: [
         {

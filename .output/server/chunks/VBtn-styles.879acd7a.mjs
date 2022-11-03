@@ -1,6 +1,2 @@
-import { d as VBtn } from './styles.mjs';
-
-const VBtnStyles_879acd7a = [VBtn];
-
-export { VBtnStyles_879acd7a as default };
+import{d as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VBtn-styles.879acd7a.mjs.map

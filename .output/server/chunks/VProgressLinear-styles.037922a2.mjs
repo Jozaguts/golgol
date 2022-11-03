@@ -1,6 +1,2 @@
-import { r as VProgressLinear } from './styles.mjs';
-
-const VProgressLinearStyles_037922a2 = [VProgressLinear];
-
-export { VProgressLinearStyles_037922a2 as default };
+import{q as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VProgressLinear-styles.037922a2.mjs.map

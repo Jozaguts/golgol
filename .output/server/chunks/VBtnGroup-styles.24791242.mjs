@@ -1,6 +1,2 @@
-import { e as VBtnGroup } from './styles.mjs';
-
-const VBtnGroupStyles_24791242 = [VBtnGroup];
-
-export { VBtnGroupStyles_24791242 as default };
+import{c as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VBtnGroup-styles.24791242.mjs.map

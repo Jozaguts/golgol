@@ -1,17 +1,2 @@
-import { defineComponent, h, useSSRContext } from 'vue';
-
-const _sfc_main = defineComponent({
-  name: "DocumentDrivenNotFound",
-  render() {
-    return h("div", "Document not found");
-  }
-});
-const _sfc_setup = _sfc_main.setup;
-_sfc_main.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/@nuxt/content/dist/runtime/components/DocumentDrivenNotFound.vue");
-  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
-};
-
-export { _sfc_main as default };
+import{defineComponent as e,h as n,useSSRContext as o}from"vue";const t=e({name:"DocumentDrivenNotFound",render:()=>n("div","Document not found")}),u=t.setup;t.setup=(e,n)=>{const t=o();return(t.modules||(t.modules=new Set)).add("node_modules/@nuxt/content/dist/runtime/components/DocumentDrivenNotFound.vue"),u?u(e,n):void 0};export{t as default};
 //# sourceMappingURL=DocumentDrivenNotFound.b4d3af5a.mjs.map

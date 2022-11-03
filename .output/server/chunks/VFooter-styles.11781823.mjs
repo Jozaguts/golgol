@@ -1,6 +1,2 @@
-import { h as VFooter } from './styles.mjs';
-
-const VFooterStyles_11781823 = [VFooter];
-
-export { VFooterStyles_11781823 as default };
+import{h as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VFooter-styles.11781823.mjs.map

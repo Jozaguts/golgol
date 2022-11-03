@@ -2,13 +2,17 @@
   <v-app>
     <v-navigation-drawer location="right" :model-value="false" app>
     </v-navigation-drawer>
-    <v-app-bar height="60" class="main-header" density="compact" app>
+    <v-app-bar height="80" class="main-header" density="compact" app>
       <v-app-bar-nav-icon>
-        <Icon name="game-icons:soccer-kick"></Icon>
+        <Icon
+          name="game-icons:soccer-kick"
+          size="80"
+          aria-label="gol gol icon"
+        ></Icon>
       </v-app-bar-nav-icon>
       <v-app-bar-title class="main-title">
-        <span class="text-red-lighten-4">gol</span>
-        <span class="text-red-lighten-5">gol!</span>
+        <span class="text-red-lighten-4 font-bold">gol</span>
+        <span class="text-red-lighten-5 font-bold">gol!</span>
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn
