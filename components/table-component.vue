@@ -11,7 +11,7 @@ const getGames = () => {
   const notFinishedGames = useFilter(rawGames, (game) => {
     const date = game.date.split(":");
     // recuerda cambiar la fecha del evento
-    const dateEvent = new Date(2022, 10, 3).setHours(date[0], date[1]);
+    const dateEvent = new Date(2022, 10, 4).setHours(date[0], date[1]);
     return dateEvent >= currentHour;
   });
   const ret = useTake(notFinishedGames, initialGames.value);
@@ -48,7 +48,7 @@ const handleScroll = () => {
       autofocus
       aria-label=""
     ></v-text-field>
-    <v-table fixed-header density="comfortable" :hover="true">
+    <v-table density="comfortable" :hover="true">
       <thead>
         <tr>
           <th scope="col" class="text-left">Hora</th>
@@ -78,7 +78,12 @@ const handleScroll = () => {
           <td><div :class="flag"></div></td>
           <td>
             {{ base_title_1 }}
-            <a :href="href" target="_blank" rel="nofollow" alt="link a partido"
+            <a
+              :href="href"
+              target="_blank"
+              rel="nofollow"
+              alt="link a partido"
+              class="text-primary-darken-1"
               ><b>{{ base_title_2 }}</b></a
             >
           </td>

@@ -2,9 +2,9 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="font-weight-light text-white">
+        <h1 class="font-weight-light">
           Partidos del día
-          <small class="text-caption text-primary">
+          <small class="text-caption">
             {{
               new Date().toLocaleDateString("es", {
                 weekday: "long",
