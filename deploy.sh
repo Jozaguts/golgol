@@ -15,3 +15,4 @@ git push -f https://github.com/Jozaguts/golgol.git master:web
 
 cd -
 rm -rf /output
+
