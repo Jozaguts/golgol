@@ -21,12 +21,12 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "tarjeta Roja Tv, PirloTv, Partido en Vivo, ROJADIRECTA, tarjeta roja, Elitegol, VipGoal, tarjetarojaonline, roja directa online, rojadirecta.me, rojadirecta.net, rojadirecta.es, rojadirecta.com, rojadirecta.it Pirlotv.online JustinTv Futbol en Vivo liga mx Real Madrid vs Barcelona por ceular y tablet. GOL gol gooo! Tarjeta Roja TV, Futbol En Vivo, LaLiga de España, Serie A, Premier League, UEFA Champions League, Bundesliga, ligamx ...",
+            "golgol.xzy tarjeta Roja Tv, PirloTv, Partido en Vivo, ROJADIRECTA, tarjeta roja, Elitegol, VipGoal, tarjetarojaonline, roja directa online, rojadirecta.me, rojadirecta.net, rojadirecta.es, rojadirecta.com, rojadirecta.it Pirlotv.online JustinTv Futbol en Vivo liga mx Real Madrid vs Barcelona por ceular y tablet. GOL gol gooo! Tarjeta Roja TV, Futbol En Vivo, LaLiga de España, Serie A, Premier League, UEFA Champions League, Bundesliga, ligamx ...",
         },
         {
           name: "keywords",
           content:
-            "tarjeta roja, tarjetaroja, rojadirecta, roja tarjeta, laroja, ver Justin TV, PirloTv, Ronaldo7, Ver Futbol Online, Futbol en vivo, Futbol por Internet, TarjetarojaTv, ver en vivo, tv online, Tarjetaroja, Tarjetaroja Tv, Roja Directa, Rojadirecta, Futbol online, Futbol en directo, Deportes online, resultados de Futbol. Television en vivo por internet, CMD en vivo, directv, La liga BBVA, Brasil 2014, TV en vivo, deportes, en vivo, psg, barca, online, Liga MX, 2015, ao vivo, jogo, assistir, watch live, Copa Pilsener.",
+            "golgol tarjeta roja, tarjetaroja, rojadirecta, roja tarjeta, laroja, ver Justin TV, PirloTv, Ronaldo7, Ver Futbol Online, Futbol en vivo, Futbol por Internet, TarjetarojaTv, ver en vivo, tv online, Tarjetaroja, Tarjetaroja Tv, Roja Directa, Rojadirecta, Futbol online, Futbol en directo, Deportes online, resultados de Futbol. Television en vivo por internet, CMD en vivo, directv, La liga BBVA, Brasil 2014, TV en vivo, deportes, en vivo, psg, barca, online, Liga MX, 2015, ao vivo, jogo, assistir, watch live, Copa Pilsener.",
         },
         { name: "distribution", content: "global" },
         { name: "robots", content: "all" },
