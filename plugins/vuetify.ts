@@ -14,6 +14,8 @@ import {
   VRow,
   VCol,
   VAppBarNavIcon,
+  VBanner,
+  VBannerText,
 } from "vuetify/components";
 import { Ripple } from "vuetify/directives";
 
@@ -66,6 +68,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       VRow,
       VCol,
       VAppBarNavIcon,
+      VBanner,
+      VBannerText,
     },
     directives: {
       Ripple,

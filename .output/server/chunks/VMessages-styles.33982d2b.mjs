@@ -1,2 +1,2 @@
-import{o as s}from"./styles.mjs";const o=[s];export{o as default};
+import{q as s}from"./styles.mjs";const t=[s];export{t as default};
 //# sourceMappingURL=VMessages-styles.33982d2b.mjs.map

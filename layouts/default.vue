@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <!--    <v-navigation-drawer location="right" :expand-on-hover="false"  :model-value="false" app></v-navigation-drawer>-->
+    <!--    <v-navigation-drawer location="right" :model-value="true" app></v-navigation-drawer>-->
     <v-app-bar height="80" class="main-header" density="compact" app>
       <v-app-bar-nav-icon>
         <Icon
@@ -53,9 +53,9 @@
     <!-- Sizes your content based upon application components -->
     <v-main>
       <!-- Provides the application the proper gutter -->
-      <v-container fluid>
-        <!-- If using vue-router -->
-        <slot />
+      <v-container>
+        <!--        <BannerComponent />-->
+        <slot :key="$router.currentRoute.fullPath" />
       </v-container>
     </v-main>
     <v-footer app></v-footer>

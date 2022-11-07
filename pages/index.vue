@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <div>
     <v-row>
-      <v-col>
+      <v-col cols="12">
         <h1 class="font-weight-light">
           Partidos del día
           <small class="text-caption">
@@ -16,13 +16,11 @@
           </small>
         </h1>
       </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
+      <v-col cols="12">
         <table-component />
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts" setup></script>
