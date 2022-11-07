@@ -1,8 +1,6 @@
 
 C
 interfaces/index.ts,d\4\d4e285d76efc557cbbfeddf31a670f65d1a2297e
->
-nuxt.config.ts,e\4\e44500e8e3ef8f6dba8f3d3501f7d772d94a973c
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 E
