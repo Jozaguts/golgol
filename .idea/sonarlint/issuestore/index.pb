@@ -10,3 +10,11 @@ E
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+B
+plugins/vuetify.ts,b\5\b53058ad0467a26d2a83a8d9c86e6d3a8b19c2b1
+O
+components/banner-component.vue,4\f\4faab18a4fbe050c60869416bd3b40b4dba737df
+>
+nuxt.config.ts,e\4\e44500e8e3ef8f6dba8f3d3501f7d772d94a973c
+C
+layouts/default.vue,f\8\f82bd9fd254b878380d49bf1912fcdc115084492
