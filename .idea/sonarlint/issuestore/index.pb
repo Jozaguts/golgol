@@ -15,12 +15,8 @@ C
 layouts/default.vue,f\8\f82bd9fd254b878380d49bf1912fcdc115084492
 9
 	deploy.sh,b\e\be94fd40f0c4b440044c3f852e44fd2a75f7b3cc
-B
-content/games.json,9\6\96e04a5178c5eb7192a3b4f7e1e3ef3d44bb9d55
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-N
-components/table-component.vue,d\9\d90d8626b267a467ecf9b540cc23d2a416be8ef7
 O
 components/banner-component.vue,4\f\4faab18a4fbe050c60869416bd3b40b4dba737df
