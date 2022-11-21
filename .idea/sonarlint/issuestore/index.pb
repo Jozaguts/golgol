@@ -13,10 +13,12 @@ C
 layouts/default.vue,f\8\f82bd9fd254b878380d49bf1912fcdc115084492
 9
 	deploy.sh,b\e\be94fd40f0c4b440044c3f852e44fd2a75f7b3cc
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 O
 components/banner-component.vue,4\f\4faab18a4fbe050c60869416bd3b40b4dba737df
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
